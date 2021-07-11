@@ -7,38 +7,31 @@
 	<display-name>CurlewConsulting</display-name>
 
 	<!-- 
-	* 
-	* servlets
+	*
+	* security
 	*
 	-->
-<!--  
-	<servlet>
-		<servlet-name>LogOn</servlet-name>
-		<servlet-class>org.nachc.cosmos.web.action.logon.LogonAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LogOn</servlet-name>
-		<url-pattern>/LogOn</url-pattern>
-	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>Start</servlet-name>
-		<servlet-class>org.nachc.cosmos.web.action.logon.StartAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Start</servlet-name>
-		<url-pattern>/Start</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>ProjectOverview</servlet-name>
-		<servlet-class>org.nachc.cosmos.web.action.logon.ProjectOverviewAction</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ProjectOverview</servlet-name>
-		<url-pattern>/ProjectOverview</url-pattern>
-	</servlet-mapping>
--->
+	<security-constraint>
+	    <web-resource-collection>
+	        <web-resource-name>users</web-resource-name>
+	        <url-pattern>/users</url-pattern>
+	        <http-method>GET</http-method>
+	        <http-method>POST</http-method>
+	    </web-resource-collection>
+	    <auth-constraint>
+	        <role-name>ROLE_ADMIN</role-name>
+	    </auth-constraint>
+	</security-constraint>
+	
+	<login-config>
+	    <auth-method>BASIC</auth-method>
+	    <realm-name>Java EE Login</realm-name>
+	</login-config>
+	
+	<security-role>
+	    <role-name>ROLE_ADMIN</role-name>
+	</security-role>	
 
 	<!-- 
 	* 
