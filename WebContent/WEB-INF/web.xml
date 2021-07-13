@@ -4,34 +4,31 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	id="WebApp_ID" version="3.1">
 
-	<display-name>CurlewConsulting</display-name>
+	<display-name>web-security-example</display-name>
 
 	<!-- 
 	*
-	* security
+	* shiro stuff
 	*
 	-->
 
-	<security-constraint>
-	    <web-resource-collection>
-	        <web-resource-name>users</web-resource-name>
-	        <url-pattern>/users</url-pattern>
-	        <http-method>GET</http-method>
-	        <http-method>POST</http-method>
-	    </web-resource-collection>
-	    <auth-constraint>
-	        <role-name>ROLE_ADMIN</role-name>
-	    </auth-constraint>
-	</security-constraint>
-	
-	<login-config>
-	    <auth-method>BASIC</auth-method>
-	    <realm-name>Java EE Login</realm-name>
-	</login-config>
-	
-	<security-role>
-	    <role-name>ROLE_ADMIN</role-name>
-	</security-role>	
+    <listener>
+        <listener-class>org.apache.shiro.web.env.EnvironmentLoaderListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>ShiroFilter</filter-name>
+        <filter-class>org.apache.shiro.web.servlet.ShiroFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>ShiroFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
 
 	<!-- 
 	* 

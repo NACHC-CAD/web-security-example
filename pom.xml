@@ -18,6 +18,25 @@
 
 	<dependencies>
 		
+		<!-- 
+		*
+		* SHIRO STUFF
+		*
+		* -->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core -->
+		<dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-core</artifactId>
+		    <version>1.7.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-web -->
+		<dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-web</artifactId>
+		    <version>1.7.1</version>
+		</dependency>
+
 		<!-- CORE NACHC FRAMEWORK STUFF -->
 		  
 		<dependency>
@@ -55,7 +74,6 @@
 			<version>2.4</version>
 			<scope>test</scope>
 		</dependency>
-
 
 		<!-- 
 		*
