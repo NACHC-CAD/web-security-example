@@ -5,8 +5,9 @@
 # ---
 
 [main]
-myRealm = org.nachc.examples.websecurity.shiro.util.realm.MyAppRealm
-securityManager.realms = $myRealm
+# authc.usernameParam = uid
+# authc.passwordParam = pwd
+# authc.failureKeyAttribute = shiroLoginFailure
 
 [users]
 admin = admin, ROLE_ADMIN
