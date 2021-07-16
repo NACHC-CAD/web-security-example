@@ -1,4 +1,8 @@
+<%@ include file="/WEB-INF/jsp/header/header.jsp"%>
+
 <html>
-	<h1>This is Dogos</h1>
+	<div align="center">
+		<h1>This is Dogos</h1>
+	</div>
 </html>
 

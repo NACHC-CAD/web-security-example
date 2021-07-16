@@ -2,7 +2,6 @@
 
 <html>
 	<div align="center">
-		<h1>This is rainbows</h1>
+		<h1>This is Sunshine</h1>
 	</div>
 </html>
-

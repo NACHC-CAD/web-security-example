@@ -7,6 +7,21 @@
 	<display-name>web-security-example</display-name>
 
 	<!-- 
+	* 
+	* servlets
+	*
+	-->
+
+	<servlet>
+		<servlet-name>LogOff</servlet-name>
+		<servlet-class>org.nachc.examples.websecurity.servlet.LogOutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogOff</servlet-name>
+		<url-pattern>/LogOff</url-pattern>
+	</servlet-mapping>
+
+	<!-- 
 	*
 	* shiro stuff
 	*
