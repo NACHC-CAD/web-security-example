@@ -11,7 +11,7 @@
 				<a href="${home}/app/index.jsp">Index</a>
 			</td>
 			<td align="right">
-				<a href="">Log Off</a>
+				<a href="${home}/LogOff">Log Off</a>
 			</td>
 		</tr>
 	</table>

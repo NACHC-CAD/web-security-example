@@ -26,9 +26,18 @@ public class MyAppRealm extends SimpleAccountRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		log.info("* * * DOING CUSTOM AUTHN * * *");
 		UsernamePasswordToken upToken = (UsernamePasswordToken) token;
-		SimpleAccount account = new SimpleAccount("foo", "bar", getName());
-		account.setCredentials("bar");
-		account.addRole("ROLE_ADMIN");
+		String uid = upToken.getUsername();
+		String pwd = new String(upToken.getPassword());
+		log.info("Doing login for user: " + uid);
+		SimpleAccount account = null;
+		if(uid.equals("foo") && pwd.equals("bar")) {
+			account = new SimpleAccount("foo", "bar", getName());
+			account.setCredentials("bar");
+			account.addRole("ROLE_ADMIN");
+		} else {
+			account = null;
+			log.info("Credentials failed for user: " + uid);
+		}
 		// account.setObjectPermissions(permissions);
 		log.info("Done with custom authn");
 		return account;

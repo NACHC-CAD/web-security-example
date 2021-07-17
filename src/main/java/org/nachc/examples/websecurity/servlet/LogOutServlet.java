@@ -17,14 +17,15 @@ public class LogOutServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		log.info("Doing log off for user:");
 		Subject subject = SecurityUtils.getSubject();
+		log.info("Doing log off for user: ");
 		if(subject != null && subject.isAuthenticated()) {
 			subject.logout();
+			log.info("Subject has been logged off");
+		} else {
+			log.info("USER NOT FOUND, NOT LOGGED OFF");
 		}
 		log.info("User has been log offed");
 	}
 
-	
-	
 }
