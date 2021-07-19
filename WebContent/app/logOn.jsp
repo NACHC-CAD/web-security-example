@@ -2,7 +2,7 @@
 
 <html>
 	<h1>Log On</h1>
-	<form action="${home}/index.html">
+	<form action="" method="POST">
 		<table>
 			<tr>
 				<td align="right">User&nbsp;Name:</td>
