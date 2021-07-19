@@ -20,12 +20,17 @@ public class LogOutServlet extends HttpServlet {
 		Subject subject = SecurityUtils.getSubject();
 		log.info("Doing log off for user: ");
 		if(subject != null && subject.isAuthenticated()) {
+			subject.getSession(false).setTimeout(1);
+			subject.getSession(false).getId();
+			subject.getSession(false).stop();
+			subject.getSession().setAttribute("isLoggedOutOfMyAppRealm", "true");
 			subject.logout();
+			SecurityUtils.getSecurityManager().logout(subject);
 			log.info("Subject has been logged off");
 		} else {
 			log.info("USER NOT FOUND, NOT LOGGED OFF");
 		}
-		log.info("User has been log offed");
+		log.info("User has been loged off");
 	}
 
 }

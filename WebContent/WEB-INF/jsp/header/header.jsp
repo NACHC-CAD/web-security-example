@@ -1,8 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-
-<c:set var="home" value="${pageContext.request.contextPath}" scope="request"/>
+<%@ include file="/WEB-INF/jsp/header/componentHeader.jsp"%>
 
 <html>
 	<table width="100%">
@@ -16,3 +12,4 @@
 		</tr>
 	</table>
 </html>
+

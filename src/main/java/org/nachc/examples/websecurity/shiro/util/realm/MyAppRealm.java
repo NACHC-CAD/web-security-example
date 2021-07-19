@@ -1,18 +1,15 @@
 package org.nachc.examples.websecurity.shiro.util.realm;
 
-import java.util.Map;
-
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.ExpiredCredentialsException;
-import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.SimpleAccount;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
-import org.apache.shiro.authz.Permission;
 import org.apache.shiro.realm.SimpleAccountRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.subject.Subject;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -26,6 +23,10 @@ public class MyAppRealm extends SimpleAccountRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		log.info("* * * DOING CUSTOM AUTHN * * *");
 		UsernamePasswordToken upToken = (UsernamePasswordToken) token;
+		Subject subject = SecurityUtils.getSubject();
+		log.info("Got subject: " + subject);
+		String isLoggedOff = subject.getSession().getAttribute("") + "";
+		log.info("Is logged off: " + isLoggedOff);
 		String uid = upToken.getUsername();
 		String pwd = new String(upToken.getPassword());
 		log.info("Doing login for user: " + uid);
