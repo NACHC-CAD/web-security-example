@@ -3,3 +3,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="home" value="${pageContext.request.contextPath}" scope="request"/>
+
+<script>
+	window.history.pushState(null, "", window.location.href);
+	window.onpopstate = function () {
+	    window.history.pushState(null, "", window.location.href);
+	};	
+</script>
