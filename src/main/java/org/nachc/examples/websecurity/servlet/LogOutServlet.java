@@ -2,6 +2,7 @@ package org.nachc.examples.websecurity.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,13 +21,11 @@ public class LogOutServlet extends HttpServlet {
 		Subject subject = SecurityUtils.getSubject();
 		log.info("Doing log off for user: ");
 		if(subject != null && subject.isAuthenticated()) {
-			subject.getSession(false).setTimeout(1);
-			subject.getSession(false).getId();
-			subject.getSession(false).stop();
-			subject.getSession().setAttribute("isLoggedOutOfMyAppRealm", "true");
 			subject.logout();
 			SecurityUtils.getSecurityManager().logout(subject);
 			log.info("Subject has been logged off");
+			RequestDispatcher disp = req.getRequestDispatcher("/app/logOn.jsp");
+			disp.forward(req, resp);
 		} else {
 			log.info("USER NOT FOUND, NOT LOGGED OFF");
 		}

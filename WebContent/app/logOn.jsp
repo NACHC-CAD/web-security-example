@@ -7,13 +7,13 @@
 			<tr>
 				<td align="right">User&nbsp;Name:</td>
 				<td>
-					<input type="input" id="uid" name="uid" />
+					<input type="input" id="uid" name="uid" value=""/>
 				</td>
 			</tr>
 			<tr>
 				<td align="right">Password:</td>
 				<td>
-					<input type="password" id="pwd" name="pwd" />
+					<input type="password" id="pwd" name="pwd" value=""/>
 				</td>
 			</tr>
 			<tr>
