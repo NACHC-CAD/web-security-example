@@ -27,17 +27,22 @@ public class MyAppRealm extends SimpleAccountRealm {
 		log.info("Got subject: " + subject);
 		String isLoggedOff = subject.getSession().getAttribute("") + "";
 		log.info("Is logged off: " + isLoggedOff);
-		String uid = upToken.getUsername();
-		String pwd = new String(upToken.getPassword());
-		log.info("Doing login for user: " + uid);
 		SimpleAccount account = null;
-		if(uid.equals("foo") && pwd.equals("bar")) {
-			account = new SimpleAccount("foo", "bar", getName());
-			account.setCredentials("bar");
-			account.addRole("ROLE_ADMIN");
+		if(upToken != null && upToken.getUsername() != null && upToken.getPassword() != null && upToken.getPassword().length > 0) {
+			String uid = upToken.getUsername();
+			String pwd = new String(upToken.getPassword());
+			log.info("Doing login for user: " + uid);
+			if(uid.equals("foo") && pwd.equals("bar")) {
+				account = new SimpleAccount("foo", "bar", getName());
+				account.setCredentials("bar");
+				account.addRole("ROLE_ADMIN");
+			} else {
+				account = null;
+				log.info("Credentials failed for user: " + uid);
+			}
 		} else {
 			account = null;
-			log.info("Credentials failed for user: " + uid);
+			log.info("UID OR PWD IS NULL");
 		}
 		// account.setObjectPermissions(permissions);
 		log.info("Done with custom authn");
