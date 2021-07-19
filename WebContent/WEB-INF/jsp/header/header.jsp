@@ -1,5 +1,11 @@
 <%@ include file="/WEB-INF/jsp/header/componentHeader.jsp"%>
 
+<head>
+	<script>
+		history.forward();
+	</script>
+</head>
+
 <html>
 	<table width="100%">
 		<tr>
