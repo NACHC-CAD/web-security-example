@@ -18,18 +18,25 @@ public class LogOutServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		processRequest(req, resp);
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		processRequest(req, resp);
+	}
+
+	protected void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Subject subject = SecurityUtils.getSubject();
 		log.info("Doing log off for user: ");
 		if(subject != null && subject.isAuthenticated()) {
 			subject.logout();
 			SecurityUtils.getSecurityManager().logout(subject);
 			log.info("Subject has been logged off");
-			RequestDispatcher disp = req.getRequestDispatcher("/app/logOn.jsp");
-			disp.forward(req, resp);
 		} else {
 			log.info("USER NOT FOUND, NOT LOGGED OFF");
 		}
-		log.info("User has been loged off");
+		resp.sendRedirect("/web-security-example/app/logOn.jsp");
 	}
 
 }

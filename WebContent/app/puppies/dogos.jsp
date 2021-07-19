@@ -3,6 +3,7 @@
 <html>
 	<div align="center">
 		<h1>This is Dogos</h1>
+		<a href="${home}/app/index.jsp">Index</a>
 	</div>
 </html>
 

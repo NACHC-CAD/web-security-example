@@ -7,5 +7,7 @@
 		<a href="${home}/app/puppies/dogos.jsp">Dogos</a><br/>
 		<a href="${home}/app/sunshine/sunshine.jsp">Sunshine</a><br/>
 		<a href="${home}/app/rainbows/rainbows.jsp">Rainbows</a><br/>
+		<br/><br/>
+		<a href="${home}/LogOff">Log Off</a>
 	</div>
 </html>
