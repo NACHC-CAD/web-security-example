@@ -1,5 +1,16 @@
 <%@ include file="/WEB-INF/jsp/header/componentHeader.jsp"%>
 
+<head>
+	<script>
+		window.history.pushState(null, "", window.location.href);
+		window.onpopstate = function () {
+		    window.history.pushState(null, "", window.location.href);
+		    alert("User Must log on to return to application");
+		};	
+		alert("Log On Required");
+	</script>
+</head>
+
 <html>
 	<h1>Log On</h1>
 	<form action="" method="POST">

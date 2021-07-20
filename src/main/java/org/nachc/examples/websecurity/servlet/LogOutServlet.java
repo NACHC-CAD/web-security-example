@@ -36,7 +36,7 @@ public class LogOutServlet extends HttpServlet {
 		} else {
 			log.info("USER NOT FOUND, NOT LOGGED OFF");
 		}
-		resp.sendRedirect("/web-security-example/app/logOn.jsp");
+		resp.sendRedirect("/web-security-example/app/logOff.jsp");
 	}
 
 }
